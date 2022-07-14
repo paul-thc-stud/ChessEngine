@@ -1,15 +1,15 @@
 package Pieces;
 
-import Board.Block;
+import Board.Board;
 import Board.Move;
 
 public class Bishop extends Piece {
-    public Bishop(PieceType pieceType, PieceColor pieceColor) {
-        super(pieceType, pieceColor);
+    public Bishop(PieceColor pieceColor) {
+        super(PieceType.BISHOP, pieceColor);
     }
 
     @Override
-    public boolean isMoveValid(Move move, Block[][] board) {
+    public boolean isMoveValid(Move move, Board board) {
         return false;
     }
 }

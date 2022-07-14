@@ -1,15 +1,16 @@
 package Pieces;
 
-import Board.Block;
+import Board.Board;
 import Board.Move;
 
 public class Knight extends Piece {
-    public Knight(PieceType pieceType, PieceColor pieceColor) {
-        super(pieceType, pieceColor);
+    public Knight(PieceColor pieceColor) {
+        super(PieceType.KNIGHT, pieceColor);
     }
 
     @Override
-    public boolean isMoveValid(Move move, Block[][] board) {
+    public boolean isMoveValid(Move move, Board board) {
         return false;
     }
+
 }

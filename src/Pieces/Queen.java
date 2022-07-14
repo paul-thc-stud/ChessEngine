@@ -1,15 +1,15 @@
 package Pieces;
 
-import Board.Block;
+import Board.Board;
 import Board.Move;
 
 public class Queen extends Piece {
-    public Queen(PieceType pieceType, PieceColor pieceColor) {
-        super(pieceType, pieceColor);
+    public Queen(PieceColor pieceColor) {
+        super(PieceType.QUEEN, pieceColor);
     }
 
     @Override
-    public boolean isMoveValid(Move move, Block[][] borad) {
+    public boolean isMoveValid(Move move, Board board) {
         return false;
     }
 }

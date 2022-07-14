@@ -1,11 +1,14 @@
 package Pieces;
 
-import Board.Block;
+import Board.Board;
 import Board.Move;
 
 public class King extends Piece {
-    public King(PieceType pieceType, PieceColor pieceColor) {
-        super(pieceType, pieceColor);
+    private boolean isUnderCheck;
+
+    public King(PieceColor pieceColor) {
+        super(PieceType.KING, pieceColor);
+        this.isUnderCheck = false;
     }
 
     public boolean isUnderCheck(){
@@ -13,7 +16,7 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean isMoveValid(Move move, Block[][] borad) {
+    public boolean isMoveValid(Move move, Board borad) {
         return false;
     }
 }
