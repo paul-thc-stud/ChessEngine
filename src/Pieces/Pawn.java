@@ -3,24 +3,28 @@ package Pieces;
 import Board.*;
 
 public class Pawn extends Piece {
-    final private int TWO_SQUARES = 2;
-    final private int ONE_SQUARE = 1;
+    private final int TWO_SQUARES = 2;
+    private final int ONE_SQUARE = 1;
     private boolean isFirstMove;
 
     public Pawn(PieceColor pieceColor) {
-        super(PieceType.PAWN, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.PAWN.notationName());
         isFirstMove = true;
     }
 
     @Override
     public boolean isMoveValid(Move move, Board board) {
-        if (!super.destOutOfBounds(move) && advancePawn(move) || capturePiece(move, board)) {
-            board.getBoard()[move.dest().row()][move.dest().col()] = new Tile(this);
-            board.getBoard()[move.origin().row()][move.origin().col()] = new Tile();
-            return true;
-        }
+        return !super.destOutOfBounds(move) && advancePawn(move) || capturePiece(move, board);
+    }
 
-        return false;
+    public void move(Move move, Board board){
+        if (isMoveValid(move, board)){
+            board.getBoard()[move.dest().row()][move.dest().col()] = this;
+            board.getBoard()[move.origin().row()][move.origin().col()] = null;
+        }
+        //debug print, might wanna throw an Illegal move error
+        System.out.println("Illegal Move");
     }
 
     private boolean advancePawn(Move move) {

@@ -5,7 +5,8 @@ import Board.Move;
 
 public class Knight extends Piece {
     public Knight(PieceColor pieceColor) {
-        super(PieceType.KNIGHT, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.KNIGHT.notationName());
     }
 
     @Override

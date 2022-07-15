@@ -6,8 +6,7 @@ public enum PieceType {
     BISHOP("B"),
     ROOK("R"),
     QUEEN("Q"),
-    KING("K"),
-    EMPTY("");
+    KING("K");
 
     private String notationName;
 

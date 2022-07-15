@@ -5,7 +5,8 @@ import Board.Move;
 
 public class Queen extends Piece {
     public Queen(PieceColor pieceColor) {
-        super(PieceType.QUEEN, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.QUEEN.notationName());
     }
 
     @Override

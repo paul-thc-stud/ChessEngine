@@ -5,7 +5,8 @@ import Board.Move;
 
 public class Bishop extends Piece {
     public Bishop(PieceColor pieceColor) {
-        super(PieceType.BISHOP, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.BISHOP.notationName());
     }
 
     @Override

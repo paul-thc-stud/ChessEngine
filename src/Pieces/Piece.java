@@ -2,19 +2,17 @@ package Pieces;
 
 import Board.Board;
 import Board.Move;
-import Board.Tile;
 
 public abstract class Piece {
-    private PieceType pieceType;
     private PieceColor pieceColor;
+    private String pieceNotation;
 
-    public Piece(PieceType pieceType, PieceColor pieceColor) {
-        this.pieceType = pieceType;
+    public Piece(PieceColor pieceColor) {
         this.pieceColor = pieceColor;
     }
 
-    public PieceType getPieceType() {
-        return pieceType;
+    public void setPieceNotation(String pieceNotation) {
+        this.pieceNotation = pieceNotation;
     }
 
     public PieceColor pieceColor() {
@@ -24,8 +22,8 @@ public abstract class Piece {
     public abstract boolean isMoveValid(Move move, Board board);
 
     public boolean opponentPiece(Move move, Board board) {
-        Tile dest = board.getBoard()[move.dest().row()][move.dest().col()];
-        return dest.isOccupied() && dest.piece().pieceColor() != this.pieceColor();
+        Piece dest = board.getBoard()[move.dest().row()][move.dest().col()];
+        return dest != null && dest.pieceColor() != this.pieceColor();
     }
 
     public boolean destOutOfBounds(Move move) {
@@ -36,6 +34,11 @@ public abstract class Piece {
 
         return move.dest().col() < MIN_LENGTH || move.dest().col() > BOARD_HEIGHT ||
                 move.dest().row() < MIN_HEIGHT || move.dest().row() > BOARD_LENGTH;
+    }
+
+    @Override
+    public String toString() {
+        return this.pieceNotation;
     }
 
     //public abstract ArrayList<Move> possibleMoves();

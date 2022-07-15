@@ -7,7 +7,8 @@ public class King extends Piece {
     private boolean isUnderCheck;
 
     public King(PieceColor pieceColor) {
-        super(PieceType.KING, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.KING.notationName());
         this.isUnderCheck = false;
     }
 

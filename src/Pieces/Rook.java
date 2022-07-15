@@ -5,7 +5,8 @@ import Board.Move;
 
 public class Rook extends Piece {
     public Rook(PieceColor pieceColor) {
-        super(PieceType.ROOK, pieceColor);
+        super(pieceColor);
+        super.setPieceNotation(PieceType.ROOK.notationName());
     }
 
     @Override
