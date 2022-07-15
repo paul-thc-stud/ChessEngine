@@ -5,21 +5,21 @@ import Pieces.Piece;
 
 
 public class Move {
-    private Location origin;
-    private Location dest;
+    private Point origin;
+    private Point dest;
     private Piece pieceToMove;
 
-    public Move(Location origin, Location dest, Piece pieceToMove) {
+    public Move(Point origin, Point dest, Piece pieceToMove) {
         this.origin = origin;
         this.dest = dest;
         this.pieceToMove = pieceToMove;
     }
 
-    public Location origin() {
+    public Point origin() {
         return origin;
     }
 
-    public Location dest() {
+    public Point dest() {
         return dest;
     }
 
